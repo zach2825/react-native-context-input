@@ -44,8 +44,6 @@ const FormProvider = ({
     const validateForm = () => {
         let errorTest = {};
 
-        console.log({ validationRules });
-
         Object.keys(validationRules).forEach(fieldName => {
             let messages = [];
 
@@ -123,6 +121,18 @@ const FormProvider = ({
         setValidationRules({ ...validationRules, [name]: { rules: newRules } });
     };
 
+    const removeValidation = (name, rule) => {
+        const { rules: originalRules = [] } = validationRules[name] || {};
+        const ruleIndex = originalRules.indexOf(rule);
+        let newRules = [...originalRules];
+
+        if (ruleIndex >= 0) {
+            newRules.slice(ruleIndex);
+        }
+
+        setValidationRules({ ...validationRules, [name]: { rules: newRules } });
+    };
+
     return (
         <FormContext.Provider
             value={{
@@ -141,6 +151,7 @@ const FormProvider = ({
                 getError,
                 clear,
                 addValidation,
+                removeValidation,
             }}
         >
             {children}
