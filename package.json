@@ -1,6 +1,6 @@
 {
   "name": "react-native-context-input",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Make inputs easier in react native",
   "main": "index.js",
   "author": "Zach Robichaud",
