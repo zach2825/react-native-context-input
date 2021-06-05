@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { Input } from 'react-native-elements';
+import { Input as RNEInput } from 'react-native-elements';
 import { REQUIRED, EMAIL, inputPROPS } from '../rules/form';
 import { FormContext } from '../context/FormContext';
 
-export default React.forwardRef((
+const Input = React.forwardRef((
 	{
 		label,
 		onChange,
@@ -60,7 +60,7 @@ export default React.forwardRef((
 	}
 
 	return (
-		<Input
+		<RNEInput
 			labelStyle={{ fontWeight: 'bold' }}
 			ref={ref}
 			data-testid="input"
@@ -74,3 +74,5 @@ export default React.forwardRef((
 		/>
 	);
 });
+
+export default Input;
